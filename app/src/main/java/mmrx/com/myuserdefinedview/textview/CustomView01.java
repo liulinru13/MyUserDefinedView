@@ -36,7 +36,7 @@ public class CustomView01 extends View{
     }
     //在xml中定义会调用这个构造函数
     public CustomView01(Context context,AttributeSet set){
-        this(context,set,R.attr.CustomViewSytle);
+        this(context,set,R.attr.CustomView01Style);
 
     }
 
@@ -49,7 +49,7 @@ public class CustomView01 extends View{
         是当前Theme中指向style的一个引用，第四个也是指向一个style的引用，只有第三个参数为0或者不为0但是
         Theme中没有为difStyleAttr属性赋值时起作用*/
         TypedArray ta = context.obtainStyledAttributes(set, R.styleable.CustomView,
-                defStyle,R.style.CustomizeStyle);
+                defStyle,R.style.CustomizeStyle01);
         //获取属性值有两种方法，一是显示的取用，二是顺序遍历TypedArray数组
         /*显示的取用
         * String str = ta.getString(R.styleable.CustomView_titleText);

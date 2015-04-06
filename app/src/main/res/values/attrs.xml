@@ -4,11 +4,26 @@
     <attr name="titleText" format="string"/>
     <attr name="titleColor" format="color"/>
     <attr name="titleSize" format="dimension"/>
-    <attr name="CustomViewSytle" format="reference"/>
+    <attr name="CustomView01Style" format="reference"/>
+
+    <attr name="image" format="reference"/>
+    <attr name="imageScaleType">
+        <enum name="fillXY" value="0"/>
+        <enum name="center" value="1"/>
+    </attr>
+    <attr name="CustomImageView02Style" format="reference"/>
 
     <declare-styleable name="CustomView">
         <attr name="titleText" />
         <attr name="titleColor" />
         <attr name="titleSize" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomImageView">
+        <attr name="titleText" />
+        <attr name="titleColor" />
+        <attr name="titleSize" />
+        <attr name="imageScaleType"/>
+        <attr name="image"/>
     </declare-styleable>
 </resources>
