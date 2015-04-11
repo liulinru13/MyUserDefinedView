@@ -2,6 +2,7 @@
 <resources>
     <!-- 自定义属性-->
     <attr name="titleText" format="string"/>
+
     <attr name="titleColor" format="color"/>
     <attr name="titleSize" format="dimension"/>
     <attr name="CustomView01Style" format="reference"/>
