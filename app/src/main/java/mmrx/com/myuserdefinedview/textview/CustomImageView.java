@@ -105,13 +105,13 @@ public class CustomImageView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 //        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int hightMod = MeasureSpec.getMode(heightMeasureSpec);
-        int hightSize = MeasureSpec.getSize(heightMeasureSpec);
+        int heightMod = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
         int widthMod = MeasureSpec.getMode(widthMeasureSpec);
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         //高度有具体数值
-        if(hightMod == MeasureSpec.EXACTLY){
-            mHeight = hightSize;
+        if(heightMod == MeasureSpec.EXACTLY){
+            mHeight = heightSize;
         }
         //wrap_content & others
         else{
@@ -121,14 +121,14 @@ public class CustomImageView extends View {
             int textHeight = mBound.height();
             //总体高度
             int totalHeight = imageHeight + textHeight + getPaddingTop() + getPaddingBottom();
-            if(hightMod == MeasureSpec.AT_MOST){
+            if(heightMod == MeasureSpec.AT_MOST){
                 //warp_content
                 //获得相对较小的高度
-                mHeight = Math.min(hightSize,totalHeight);
+                mHeight = Math.min(heightSize,totalHeight);
             }
             else{
                 //多个自定义CustomImageView放入ScrollView中，只会显示出最后一个处理办法
-                mHeight = hightSize;
+                mHeight = heightSize;
             }
         }
 

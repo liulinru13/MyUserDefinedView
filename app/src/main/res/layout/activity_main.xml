@@ -3,34 +3,49 @@
      在Gradle项目中，在最终的apk里，包名可能会改变，所以不应该使用硬编码的方式来设置nameSpace
      应该使用xmlns:customview01="http://schemas.android.com/apk/res-auto"，在编译阶段会自动
      寻找实际的包-->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:customview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <mmrx.com.myuserdefinedview.textview.CustomView01
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"/>
-
-    <mmrx.com.myuserdefinedview.textview.CustomImageView
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        customview:imageScaleType="center"
-        customview:titleText="androidandroidandroidandroid"
-        customview:image="@drawable/ic_launcher"
-        android:padding="20dp"/>
-
-    <mmrx.com.myuserdefinedview.textview.CustomImageView
-        android:layout_marginTop="20dp"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        customview:imageScaleType="fillXY"
-        customview:titleText="板娘"
-        customview:image="@drawable/hello"
-        android:padding="5dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
-</LinearLayout>
+        <mmrx.com.myuserdefinedview.textview.CustomView01
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"/>
+
+        <mmrx.com.myuserdefinedview.textview.CustomImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            customview:imageScaleType="center"
+            customview:titleText="androidandroidandroidandroid"
+            customview:image="@drawable/ic_launcher"
+            android:padding="20dp"/>
+
+        <mmrx.com.myuserdefinedview.textview.CustomImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            customview:imageScaleType="fillXY"
+            customview:titleText="板娘"
+            customview:image="@drawable/hello"
+            android:padding="5dp"/>
+
+        <mmrx.com.myuserdefinedview.textview.CustomRoundImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            customview:borderWidth="5dp"
+            customview:borderColor="#ff868686"
+            customview:image="@drawable/hello"
+            />
+
+
+
+    </LinearLayout>
+</ScrollView>

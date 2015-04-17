@@ -5,6 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="CustomView01Style">@style/CustomizeStyle01</item>
         <item name="CustomImageView02Style">@style/CustomizeStyle02</item>
+        <item name="CustomImageView03Style">@style/CustomizeStyle03</item>
     </style>
 
     <style name="CustomizeStyle01">
@@ -19,5 +20,12 @@
         <item name="titleSize">14dp</item>
         <item name="imageScaleType">center</item>
         <item name="image">@drawable/ic_launcher</item>
+    </style>
+
+    <style name="CustomizeStyle03">
+        <item name="imageScaleType">center</item>
+        <item name="image">@drawable/ic_launcher</item>
+        <item name="borderWidth">0dp</item>
+        <item name="borderColor">#ffffffff</item>
     </style>
 </resources>
