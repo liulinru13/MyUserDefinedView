@@ -1,0 +1,52 @@
+<FrameLayout
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mmrx.com.myuserdefinedview.fragment.MyFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <mmrx.com.myuserdefinedview.textview.CustomView01
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
+
+            <mmrx.com.myuserdefinedview.textview.CustomImageView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                customview:imageScaleType="center"
+                customview:titleText="androidandroidandroidandroid"
+                customview:image="@drawable/ic_launcher"
+                android:padding="20dp"/>
+
+            <mmrx.com.myuserdefinedview.textview.CustomImageView
+                android:layout_marginTop="20dp"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                customview:imageScaleType="fillXY"
+                customview:titleText="板娘"
+                customview:image="@drawable/hello"
+                android:padding="5dp"/>
+
+            <mmrx.com.myuserdefinedview.textview.CustomRoundImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                customview:borderWidth="5dp"
+                customview:borderColor="#ff868686"
+                customview:image="@drawable/hello"
+                />
+
+            </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>

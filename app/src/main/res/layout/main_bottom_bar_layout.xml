@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/bottom_bar_height"
+    android:layout_alignParentBottom="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="4">
+        <!--android:descendantFocusability="beforeDescendants"
+            beforeDescendants：viewgroup会优先其子类控件而获取到焦点
+            afterDescendants：viewgroup只有当其子类控件不需要获取焦点时才获取焦点
+            blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点
+        -->
+        <LinearLayout
+            android:id="@+id/bottom_bar_01"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:descendantFocusability="beforeDescendants"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/bottom_bar_bn1"
+                style="@style/BottomBarButtomNormal"
+                android:background="@color/bottom_bar_pressed"
+                android:text="01"
+                android:clickable="false"
+                android:textColor="@color/bottom_bar_text_pressed"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_bar_02"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:descendantFocusability="beforeDescendants"
+            android:layout_weight="1">
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/bottom_bar_bn2"
+                android:text="02"
+                android:clickable="false"
+                style="@style/BottomBarButtomNormal"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_bar_03"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:descendantFocusability="beforeDescendants"
+            android:layout_weight="1">
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/bottom_bar_bn3"
+                android:text="03"
+                android:clickable="false"
+                style="@style/BottomBarButtomNormal"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_bar_04"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:descendantFocusability="beforeDescendants"
+            android:layout_weight="1">
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/bottom_bar_bn4"
+                android:text="04"
+                android:clickable="false"
+                style="@style/BottomBarButtomNormal"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

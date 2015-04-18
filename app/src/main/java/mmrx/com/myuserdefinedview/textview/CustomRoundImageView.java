@@ -1,6 +1,5 @@
 package mmrx.com.myuserdefinedview.textview;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -13,8 +12,6 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.widget.ImageView;
 
 import mmrx.com.myuserdefinedview.R;
@@ -55,6 +52,7 @@ public class CustomRoundImageView extends ImageView {
 
     public CustomRoundImageView(Context mContext,AttributeSet attr){
         this(mContext, attr, R.attr.CustomImageView03Style);
+
         this.mContext = mContext;
     }
 
@@ -113,16 +111,22 @@ public class CustomRoundImageView extends ImageView {
         else{
             mWidth = mBitmap.getWidth();
         }
-
-        Log.v("--wrap_content--dimen1", "width: " + mWidth + " height: " + mHeight);
-        //获得屏幕的宽高,代码里面获取和设置的都是像素作为单位
-        DisplayMetrics dm = new DisplayMetrics();
-        ((Activity)mContext).getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int screenWidth = dm.widthPixels;
-        int screenHeight = dm.heightPixels;
-        //比较图片的尺寸和屏幕的尺寸，尺寸最大不得超出屏幕
-        mWidth = mWidth<=screenWidth? mWidth : screenWidth;
-        mHeight = mHeight<=screenHeight? mHeight : screenHeight;
+/*
+* 下面注释掉的代码在Fragment的布局文件不适用，如果需要在Activity中使用，请取消下面的注释
+* */
+//        Log.v("--wrap_content--dimen1", "width: " + mWidth + " height: " + mHeight);
+//        //获得屏幕的宽高,代码里面获取和设置的都是像素作为单位
+//        DisplayMetrics dm = new DisplayMetrics();
+//        int screenWidth = 0,screenHeight = 0;
+//        if(this.getParent() instanceof Fragment)
+//            ((Fragment)this.getParent()).getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+//        else
+//            ((Activity)mContext).getWindowManager().getDefaultDisplay().getMetrics(dm);
+//        screenWidth = dm.widthPixels;
+//        screenHeight = dm.heightPixels;
+//        //比较图片的尺寸和屏幕的尺寸，尺寸最大不得超出屏幕
+//        mWidth = mWidth<=screenWidth? mWidth : screenWidth;
+//        mHeight = mHeight<=screenHeight? mHeight : screenHeight;
 //        Log.v("--wrap_content--dimen2","screenHeight: "+ screenHeight + " screenWidth: " + screenWidth);
 //        Log.v("--wrap_content--dimen1","width: "+ mWidth + " height: " + mHeight);
         mWidth = Math.min(mWidth,mHeight);

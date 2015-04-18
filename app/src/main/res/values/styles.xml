@@ -8,6 +8,17 @@
         <item name="CustomImageView03Style">@style/CustomizeStyle03</item>
     </style>
 
+    <style name="MyActivityStyle">
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <style name="BottomBarButtomNormal">
+        <item name="android:background">@color/bottom_bar_normal</item>
+        <item name="android:textColor">@color/bottom_bar_text_normal</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
     <style name="CustomizeStyle01">
         <item name="titleText">@string/hello_world</item>
         <item name="titleColor">#ff0000</item>
