@@ -13,7 +13,9 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.widget.ImageView;
 
 import mmrx.com.myuserdefinedview.R;
@@ -41,6 +43,7 @@ public class CustomRIV2 extends ImageView {
     private float BORDER_TEXT = 10f;
     //边框角度
     private float mBorderAngle = 90f;
+    private float mBorderAngle_ = 90f;//最初设定的数值
     //文字大小
     private int mTextSize = 18;
     //第一行文//
@@ -70,6 +73,12 @@ public class CustomRIV2 extends ImageView {
     //变换矩形
     private Matrix mBitMapMatrix;
 
+    //控制圆环变化的标识符
+    boolean isAdd = true;
+    boolean isDecreased = true;
+    //圆环增减的速度
+    final int mSpeed = 5;
+
     public CustomRIV2(Context mContext){
         super(mContext);
         this.mContext = mContext;
@@ -77,7 +86,6 @@ public class CustomRIV2 extends ImageView {
 
     public CustomRIV2(Context mContext,AttributeSet attr){
         this(mContext, attr, R.attr.CustomImageView04Style);
-
         this.mContext = mContext;
     }
 
@@ -108,6 +116,7 @@ public class CustomRIV2 extends ImageView {
                     break;
                 case R.styleable.CustomRIV2_style_borderAngle:
                     mBorderAngle = ta.getFloat(index,90);
+                    mBorderAngle_ = mBorderAngle;
                     break;
                 case R.styleable.CustomRIV2_style_titleText:
                     mTextRow1 = ta.getString(index);
@@ -210,7 +219,6 @@ public class CustomRIV2 extends ImageView {
         mBorderPaint.setColor(mBorderColor);
         mBorderPaint.setStrokeWidth(mBorderWidth);
 
-
         //边框矩形
         mBorderRect.set(0,0,getWidth(),getHeight());
         //边框半径,考虑线条的宽度,如果没有考虑线条宽度，显示会把线条的一部分遮蔽
@@ -259,7 +267,6 @@ public class CustomRIV2 extends ImageView {
             mTextPaint.setTextAlign(Paint.Align.CENTER);
             canvas.drawText(mTextRow2,getWidth()/2,borderBottom+BORDER_TEXT+mRow1Rect.height()+TEXT+mRow2Rect.height()/2,mTextPaint);
         }
-
     }
     //根据控件的尺寸和设置的图片缩放模式，来对图片进行缩放
     private void setBitMapScale(){
@@ -304,4 +311,57 @@ public class CustomRIV2 extends ImageView {
         this.mBitmap = BitmapFactory.decodeResource(getResources(),rid);
         invalidate();
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                Log.v("CustomRIV2-onTouchEvent","ACTION_DOWN");
+                isDecreased = false;
+                isAdd = true;
+                new Thread(new AddRunnable()).start();
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.v("CustomRIV2-onTouchEvent","ACTION_UP");
+                isDecreased = true;
+                isAdd = false;
+                new Thread(new DecreaseRunnable()).start();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
+
+    private class AddRunnable implements Runnable{
+        @Override
+        public void run() {
+            while (isAdd && mBorderAngle <= 360) {
+                mBorderAngle += 2;
+                postInvalidate();
+                try {
+                    Thread.sleep(mSpeed);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    break;
+                }
+            }
+        }
+    };
+
+    private class DecreaseRunnable implements Runnable{
+        @Override
+        public void run() {
+            while (isDecreased && mBorderAngle >mBorderAngle_) {
+                mBorderAngle -= 2;
+                postInvalidate();
+                try {
+                    Thread.sleep(mSpeed);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    break;
+                }
+            }
+        }
+    };
 }

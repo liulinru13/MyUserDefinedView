@@ -28,14 +28,14 @@
                 customview:image="@drawable/ic_launcher"
                 android:padding="20dp"/>
 
-            <mmrx.com.myuserdefinedview.textview.CustomImageView
-                android:layout_marginTop="20dp"
-                android:layout_width="150dp"
-                android:layout_height="200dp"
-                customview:imageScaleType="fillXY"
-                customview:titleText="詹维斯卡维泽"
-                customview:image="@drawable/hello"
-                android:padding="5dp"/>
+            <!--<mmrx.com.myuserdefinedview.textview.CustomImageView-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_width="150dp"-->
+                <!--android:layout_height="200dp"-->
+                <!--customview:imageScaleType="fillXY"-->
+                <!--customview:titleText="詹维斯卡维泽"-->
+                <!--customview:image="@drawable/hello"-->
+                <!--android:padding="5dp"/>-->
 
             <mmrx.com.myuserdefinedview.textview.CustomRoundImageView
                 android:layout_width="100dp"
@@ -44,7 +44,6 @@
                 customview:borderColor="#ff868686"
                 customview:image="@drawable/hello"
                 />
-
             <mmrx.com.myuserdefinedview.textview.CustomRIV2
                 android:layout_width="70dp"
                 android:layout_height="70dp"
