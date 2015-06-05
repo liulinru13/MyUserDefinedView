@@ -100,9 +100,6 @@ public class CustomRIV2 extends ImageView {
                 case R.styleable.CustomRIV2_style_borderColor:
                     mBorderColor = ta.getColor(index,Color.WHITE);
                     break;
-//                case R.styleable.CustomRIV2_style_borderWidth:
-//                    mBorderWidth = ta.getDimension(index,5f);
-//                    break;
                 case R.styleable.CustomRIV2_style_image:
                     mBitmap = BitmapFactory.decodeResource(getResources(),ta.getResourceId(index,0));
                     break;
@@ -160,7 +157,6 @@ public class CustomRIV2 extends ImageView {
 
         int row1width = 0,row2width = 0;
         int row1height = 0,row2height = 0;
-
         //march_parent & exactly dimen
         if(heightMod == MeasureSpec.EXACTLY){
             mHeight = heightSize;
@@ -190,21 +186,19 @@ public class CustomRIV2 extends ImageView {
         mBorderWidth = (int)(mDrawableRadius/10);
         BORDER = (int)(mBorderWidth/3);
         BORDER_TEXT = mBorderWidth*2;
+        //考虑线条的宽度,如果没有考虑线条宽度，显示会把线条的一部分遮蔽
         //外边框的半径
         mBorderRadius = mDrawableRadius + BORDER + mBorderWidth;
         //计算控件的高度
-        int height =(int)(mBorderRadius*2 + BORDER_TEXT + row1height + TEXT + row2height + 0.5);
+        int height =(int)((mBorderRadius+mBorderWidth)*2 + BORDER_TEXT + row1height + TEXT + row2height + 0.5);
         //计算控件的宽度
         int textWidth = Math.max(row1width,row2width);
         int width = Math.max(textWidth,(int)(mBorderRadius*2+0.5))+(int)mBorderWidth;
-//        mWidth = Math.min(mWidth,mHeight);
-//        mHeight = Math.min(mWidth,mHeight);
         setMeasuredDimension(width, height);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-//        super.onDraw(canvas);
         if(mBitmap == null)
             return;
         //设置渲染器
@@ -221,11 +215,10 @@ public class CustomRIV2 extends ImageView {
 
         //边框矩形
         mBorderRect.set(0,0,getWidth(),getHeight());
-        //边框半径,考虑线条的宽度,如果没有考虑线条宽度，显示会把线条的一部分遮蔽
-//        mBorderRadius = Math.min((mBorderRect.width()-mBorderWidth)/2,(mBorderRect.height()-mBorderWidth)/2);
+
         //图片外框的矩形,因为图片是在外边框内部，所以位置矩形的坐标要考虑到边框的宽度
         final float borderLeft = getWidth()/2-mBorderRadius;
-        final float borderTop = (getHeight()-mRow1Rect.height()-mRow2Rect.height()-BORDER_TEXT-TEXT)/2-mBorderRadius;
+        final float borderTop = (getHeight()-mRow1Rect.height()-mRow2Rect.height()-BORDER_TEXT-TEXT)/2-mBorderRadius+mBorderWidth;
         final float borderRight = getWidth()/2+mBorderRadius;
         final float borderBottom =  getHeight()-mRow1Rect.height()-mRow2Rect.height()-BORDER_TEXT-TEXT;
         mOuterBorderRect.set(borderLeft,borderTop,
@@ -235,13 +228,11 @@ public class CustomRIV2 extends ImageView {
                 borderTop+BORDER,
                 borderRight-BORDER,
                 borderBottom-BORDER);
-        //圆形图片的半径
-//        mDrawableRadius = mBorderRadius-mBorderWidth;
         //设置图片的缩放
         setBitMapScale();
 
         canvas.drawCircle(getWidth()/2,
-                (getHeight()-mRow1Rect.height()-mRow2Rect.height()-BORDER_TEXT-TEXT)/2,
+                (getHeight()-mRow1Rect.height()-mRow2Rect.height()-BORDER_TEXT-TEXT)/2+mBorderWidth,
                 mDrawableRadius,mBitMapPaint);
         if(mBorderWidth != 0) {
             //设置起始角度 0度位置为三点钟方向
