@@ -33,18 +33,28 @@
                 android:layout_width="150dp"
                 android:layout_height="200dp"
                 customview:imageScaleType="fillXY"
-                customview:titleText="板娘"
+                customview:titleText="詹维斯卡维泽"
                 customview:image="@drawable/hello"
                 android:padding="5dp"/>
 
             <mmrx.com.myuserdefinedview.textview.CustomRoundImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                customview:borderWidth="5dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                customview:borderWidth="2dp"
                 customview:borderColor="#ff868686"
                 customview:image="@drawable/hello"
                 />
 
+            <mmrx.com.myuserdefinedview.textview.CustomRIV2
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                customview:borderWidth="5dp"
+                customview:borderColor="#ff868686"
+                customview:image="@drawable/hello"
+                customview:titleText="詹维斯·卡维泽"
+                customview:titleSize="18dp"
+                customview:contentText="《疑犯追踪》男主角"
+                customview:borderAngle="120"/>
             </LinearLayout>
     </ScrollView>
 

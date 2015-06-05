@@ -27,8 +27,8 @@ public class MyFragment02 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment02_my_layout, container, false);
-        mText = (TextView)mView.findViewById(R.id.fragment02_text);
-        mText.setText("02");
+//        mText = (TextView)mView.findViewById(R.id.fragment02_text);
+//        mText.setText("02");
         return mView;
     }
 }

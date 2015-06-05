@@ -6,6 +6,7 @@
         <item name="CustomView01Style">@style/CustomizeStyle01</item>
         <item name="CustomImageView02Style">@style/CustomizeStyle02</item>
         <item name="CustomImageView03Style">@style/CustomizeStyle03</item>
+        <item name="CustomImageView04Style">@style/CustomizeStyle04</item>
     </style>
 
     <style name="MyActivityStyle">
@@ -38,5 +39,13 @@
         <item name="image">@drawable/ic_launcher</item>
         <item name="borderWidth">0dp</item>
         <item name="borderColor">#ffffffff</item>
+    </style>
+
+    <style name="CustomizeStyle04">
+        <item name="imageScaleType">center</item>
+        <item name="image">@drawable/hello</item>
+        <item name="borderWidth">5dp</item>
+        <item name="borderColor">#ff00</item>
+        <item name="borderAngle">90</item>
     </style>
 </resources>

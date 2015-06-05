@@ -3,18 +3,25 @@
     <!-- 自定义属性-->
     <attr name="titleText" format="string"/>
     <attr name="titleColor" format="color"/>
+    <attr name="contentColor" format="color"/>
+    <attr name="contentText" format="string"/>
     <attr name="titleSize" format="dimension"/>
     <attr name="image" format="reference"/>
     <attr name="imageScaleType">
         <enum name="fillXY" value="0"/>
         <enum name="center" value="1"/>
     </attr>
+    <!--边框宽度-->
     <attr name="borderWidth" format="dimension"/>
+    <!--边框颜色-->
     <attr name="borderColor" format="color"/>
+    <!--边框角度-->
+    <attr name="borderAngle" format="float"/>
 
     <attr name="CustomView01Style" format="reference"/>
     <attr name="CustomImageView02Style" format="reference"/>
     <attr name="CustomImageView03Style" format="reference"/>
+    <attr name="CustomImageView04Style" format="reference"/>
 
     <declare-styleable name="CustomView">
         <attr name="titleText" />
@@ -35,5 +42,18 @@
         <attr name="borderWidth"/>
         <attr name="borderColor"/>
         <attr name="imageScaleType"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomRIV2_style">
+        <attr name="image"/>
+        <!--<attr name="borderWidth"/>-->
+        <attr name="borderColor"/>
+        <attr name="imageScaleType"/>
+        <attr name="borderAngle"/>
+        <attr name="titleText"/>
+        <attr name="titleSize" />
+        <attr name="contentText"/>
+        <attr name="titleColor"/>
+        <attr name="contentColor"/>
     </declare-styleable>
 </resources>
